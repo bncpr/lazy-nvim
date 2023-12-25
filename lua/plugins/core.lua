@@ -47,14 +47,14 @@ return {
       },
     },
     -- change some options
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
+    -- opts = {
+    --   defaults = {
+    --     layout_strategy = "horizontal",
+    --     layout_config = { prompt_position = "top" },
+    --     sorting_strategy = "ascending",
+    --     winblend = 0,
+    --   },
+    -- },
   },
 
   -- add telescope-fzf-native
@@ -89,22 +89,7 @@ return {
     end,
     opts = {
       -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        -- pyright = {
-        --   settings = {
-        --     python = {
-        --       analysis = {
-        --         autoImportCompletions = true,
-        --         typeCheckingMode = "off",
-        --         autoSearchPaths = true,
-        --         useLibraryCodeForTypes = true,
-        --         diagnosticMode = "openFilesOnly", -- "workspace",
-        --       },
-        --     },
-        --   },
-        -- },
         pylsp = {
           mason = false,
           plugins = {
