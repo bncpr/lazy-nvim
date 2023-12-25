@@ -72,6 +72,21 @@ return {
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- change a keymap
+      -- keys[#keys + 1] = { "K", "<cmd>echo 'hello'<cr>" }
+      -- disable a keymap
+      -- keys[#keys + 1] = { "K", false }
+      -- add a keymap
+      -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
+      keys[#keys + 1] = {
+        "<leader>ca",
+        function()
+          require("actions-preview").code_actions()
+        end,
+      }
+    end,
     opts = {
       -- LSP Server Settings
       ---@type lspconfig.options
