@@ -5,16 +5,6 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
-  --   { "ellisonleao/gruvbox.nvim" },
-  --
-  --   -- Configure LazyVim to load gruvbox
-  --   {
-  --     "LazyVim/LazyVim",
-  --     opts = {
-  --       colorscheme = "gruvbox",
-  --     },
-  --   },
   --
   --   -- change trouble config
   --   {
