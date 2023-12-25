@@ -69,18 +69,48 @@ return {
     },
   },
   --
-  --   -- add pyright to lspconfig
-  --   {
-  --     "neovim/nvim-lspconfig",
-  --     ---@class PluginLspOpts
-  --     opts = {
-  --       ---@type lspconfig.options
-  --       servers = {
-  --         -- pyright will be automatically installed with mason and loaded with lspconfig
-  --         pyright = {},
-  --       },
-  --     },
-  --   },
+  -- add pyright to lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      -- LSP Server Settings
+      ---@type lspconfig.options
+      servers = {
+        -- pyright will be automatically installed with mason and loaded with lspconfig
+        -- pyright = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         autoImportCompletions = true,
+        --         typeCheckingMode = "off",
+        --         autoSearchPaths = true,
+        --         useLibraryCodeForTypes = true,
+        --         diagnosticMode = "openFilesOnly", -- "workspace",
+        --       },
+        --     },
+        --   },
+        -- },
+        pylsp = {
+          mason = false,
+          plugins = {
+            pycodestyle = {
+              -- ignore = { "W391" },
+              -- maxLineLength = 100,
+              enabled = false,
+            },
+            flake8 = { enabled = false },
+            autopep8 = { enabled = false },
+            mccabe = { enabled = false },
+            pyflakes = { enabled = false },
+            pylint = { enabled = false },
+            yapf = { enabled = false },
+            ruff = { enabled = true, lineLength = 120 },
+            rope_autoimport = { enabled = true },
+          },
+        },
+      },
+    },
+  },
   --
   --   -- add tsserver and setup with typescript.nvim instead of lspconfig
   --   {
