@@ -6,3 +6,4 @@ vim.g.maplocalleader = ""
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.opt.relativenumber = false
