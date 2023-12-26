@@ -1,5 +1,11 @@
 return {
   {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader>sR", false },
+      { "<leader>.", "<cmd>Telescope resume<cr>", desc = "Resume" },
+    },
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
