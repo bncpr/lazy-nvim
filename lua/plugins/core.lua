@@ -92,6 +92,21 @@ return {
       servers = {
         pylsp = {
           mason = false,
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+          },
           plugins = {
             pycodestyle = {
               -- ignore = { "W391" },
@@ -105,9 +120,22 @@ return {
             pylint = { enabled = false },
             yapf = { enabled = false },
             ruff = { enabled = true, lineLength = 120 },
+            isort = { enabled = true },
             rope_autoimport = { enabled = true },
           },
         },
+      },
+      setup = {
+        -- pylsp = function()
+        --   require("lazyvim.util").lsp.on_attach(function(client, _)
+        --     if client.name == "pylsp" then
+        --       vim.lsp.set_log_level("trace")
+        --       if vim.fn.has("nvim-0.5.1") == 1 then
+        --         require("vim.lsp.log").set_format_func(vim.inspect)
+        --       end
+        --     end
+        --   end)
+        -- end,
       },
     },
   },
