@@ -50,13 +50,6 @@ return {
       return {}
     end,
   },
-  {
-    "kawre/neotab.nvim",
-    event = "InsertEnter",
-    opts = {
-      tabkey = "",
-    },
-  },
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
@@ -69,7 +62,7 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function()
+        ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
@@ -77,7 +70,7 @@ return {
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           else
-            require("neotab").tabout()
+            fallback()
           end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
