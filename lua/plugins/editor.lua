@@ -5,6 +5,21 @@ return {
       { "<leader>sR", false },
       { "<leader>.", "<cmd>Telescope resume<cr>", desc = "Resume" },
     },
+    opts = function(_, opts)
+      local actions = require("telescope.actions")
+      opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
+        buffers = {
+          mappings = {
+            i = {
+              ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+            },
+            n = {
+              ["dd"] = actions.delete_buffer + actions.move_to_top,
+            },
+          },
+        },
+      })
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
