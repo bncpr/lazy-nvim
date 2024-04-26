@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.g.maplocalleader = ""
+vim.g.c_syntax_for_h = 1
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
